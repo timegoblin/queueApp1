@@ -1,0 +1,28 @@
+# Default enviroment set up with port 8080 - 
+server:
+    address: 127.0.0.1
+    port: ${appPort:8080}
+remote:
+    server:
+      uri : http://localhost:8080/promotion
+---
+# Local(dev) environment port set up
+spring:
+    profiles: local
+server:
+    address: 127.0.0.1
+    port: ${appPort:8080}
+---
+# Test environment port set up
+spring:
+    profiles: test
+server:
+    address: 192.168.1.120
+    port: ${appPort:8085}
+---
+# Production environment port set up
+spring:
+    profiles: production
+server:
+    address: 192.168.1.120
+    port: ${appPort:8084}
